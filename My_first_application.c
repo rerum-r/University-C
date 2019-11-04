@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-/* вывод тамблицы температур по Фаренгейту и Цельсию
-   версия с вещественной арифметикой*/
+/* display of temperature table Fahrenheit and Celsius
+    version with real arithmetic*/
 
 int main()
 {
