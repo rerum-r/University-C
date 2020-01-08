@@ -46,15 +46,66 @@ void reverse (char s[])
 }
 #define tabs = 8;
 //Programm 1.20,1.21
-void detab(char s[], char c[])
+void detab(char s[], char c[]);
 {
-    int len
-    
+    int tabs = 8;
+    int len = 0;
+    int space = 0;
+    int column = 0;
+    for (int length = 0; c[length] != 0; length)
+    {
+        len = length;
+    }
+    for (int i = 0; i <= len; ++i) {
+       if (c[i] == '\t')
+           do {
+            column++;
+            to[++space] = ' ';
+       }
+       while (column%tabs);
+       else {
+           if (c[i] == '\n')
+               column = 0;
+           else column++;
+           s[++space] = c[i];
+           }
+      }
+    s[space] = '\0';
 }
 
-void entab(char s[], char c[])
+void entab(char s[], char c[]);
 {
-    
+    int tabs = 8;
+    int len = 0;
+    int space = 0;
+    int column = 0;
+    int h = 0;
+    for (int = 0; s[length] != 0; ++length)
+    {
+        len = length;
+    }
+    for (int i = 0; i <= len; ++i){
+        if (c[i] = '\t')
+            column += (tabs - column%tabs);
+        else
+           ++column;
+        if (c[i] == ' '){
+            ++h;
+            if (!(column%tabs)){
+                space = 0;
+                s[++space] = '\t';
+            }
+            else {
+               for (int r = 0; r < space; ++r)
+                   s[++space] = ' ';
+               h = 0;
+               if (c[i] == '\n')
+                   column = 0;
+               s [++space] = c [i];
+            }
+        }
+    }
+    s[space] = '\0'
 }
 
 int main()
@@ -246,8 +297,21 @@ int main()
 //Chapter 1.10
 //Programm 1.20,1.21
 
-    
-    
+    printf("Enter a tab or spaces \n");
+    printf("Enter String:\t1:\t2:\t3:\t4:\t5:\n");
+    char p[350];
+    for (int i = 0; i < 350; ++i) p[i] = 0;
+    char o[350];
+    for (int i = 0; i < 350; ++i) o[i] = 0;
+    int l_length;
+    while ((l_length = getline(p, 350)) > 0){
+        detab (o,p);
+        printf("%s - result programm 20\n",o);
+        for (int i = 0; i < 350; ++i) p[i] = 0;
+        entab(p,o);
+        printf("%s result programm 21 \n", p);
+
+    }
 
     return 0;
 }
