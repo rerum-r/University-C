@@ -16,12 +16,46 @@ float to_fahr(float celsius)
 int get_line(char s[], int max_line)
 {
     int c, i;
-    for(i = 0; i<max_line-1 && (c=getchar()) !='\n'; ++i)
+    for(i = 0; i < max_line-1 && (c=getchar()) !='\n'; ++i)
         s[i] = c;
     s[i] = '\0';
     return i;
 }
+//Programm 1.17
+int line_length(char s[])
+{
+    int i = 0;
 
+    while(s[i] != '\0' )
+        i++;
+    return i;
+}
+//Programm 1.19
+void reverse (char s[])
+{
+    int r = line_length(s)-1;
+//  printf("\nLength=%d", r);
+    int l = 0;
+    while (l < r){
+        char c = s[r];
+        s[r] = s[l];
+        s[l] = c;
+        ++l;
+        --r;
+    }
+}
+#define tabs = 8;
+//Programm 1.20,1.21
+void detab(char s[], char c[])
+{
+    int len
+    
+}
+
+void entab(char s[], char c[])
+{
+    
+}
 
 int main()
 {
@@ -187,14 +221,33 @@ int main()
         celsius = celsius + STEP;
     }
 
-
 //Character arrays 1.9
-    char buf[5];
+//Programm 1.16,1.17,1.18,1.19
 
-    int lenths;
-    while ((lenths = get_line (buf, 5)) != 0)
-        printf("%s,%d\n", buf, lenths);
+#define MAX_LINE 10
+#define LONG_LINE 5
 
+    printf("\nEnter text max lenght %d and longer %d\n", MAX_LINE, LONG_LINE);
+    char buf[MAX_LINE];
+
+    int lengths;
+    while ((lengths = get_line (buf, MAX_LINE)) != 0){
+        printf("Source:%s,%d\n", buf, lengths);
+        while (lengths != 0 && (buf[lengths-1] == ' ' || buf[lengths-1] == '\t'))
+            buf[--lengths] = '\0';
+        printf("Cut source:%s,%d\n",buf, lengths);
+        reverse(buf);
+        printf("Reversed source:%s,%d\n",buf, lengths);
+        if (lengths > LONG_LINE)
+            printf("Is longer than %d\n", LONG_LINE);
+        else
+            printf("Is shorter or equal than %d\n", LONG_LINE);
+    }
+//Chapter 1.10
+//Programm 1.20,1.21
+
+    
+    
 
     return 0;
 }
