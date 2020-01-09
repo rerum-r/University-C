@@ -44,15 +44,28 @@ void reverse (char s[])
         --r;
     }
 }
-#define tabs = 8;
 //Programm 1.20,1.21
-void detab(char s[], char c[]);
+#define TAB_SIZE 8
+void detab()
 {
-    int tabs = 8;
     int len = 0;
     int space = 0;
     int column = 0;
-    for (int length = 0; c[length] != 0; length)
+    printf("Replace tabs with spaces in stream.\n");
+    printf("Tabs:\t:1\t:2\t:3\t:4\t:5\t:6\t:7\n");
+    int c;
+    while ((c = getchar()) != '\n') {
+        if (c == '\t'){
+            do{
+                putchar('.');
+                ++column;
+            }while(column%TAB_SIZE != 0);
+        }else{
+            putchar(c);
+            ++column;
+        }
+    }
+/*    for (int length = 0; [length] != 0; ++length)
     {
         len = length;
     }
@@ -60,7 +73,7 @@ void detab(char s[], char c[]);
        if (c[i] == '\t')
            do {
             column++;
-            to[++space] = ' ';
+            [++space] = ' ';
        }
        while (column%tabs);
        else {
@@ -70,12 +83,38 @@ void detab(char s[], char c[]);
            s[++space] = c[i];
            }
       }
-    s[space] = '\0';
+s[space] = '\0';*/
 }
 
-void entab(char s[], char c[]);
+void entab()
 {
-    int tabs = 8;
+    int column = 0;
+    int spaces = 0;
+    int c;
+    printf("Repalce spaces with tabs and extra spaces\n");
+    printf("Tabs:\t:1\t:2\t:3\t:4\t:5\t:6\t:7\n");
+    while ((c = getchar()) != '\n'){
+        if (c == '\t')
+            column += TAB_SIZE-(column%TAB_SIZE);
+        else
+            ++column;
+        if (c == ' '){
+            ++spaces;
+           if (column%TAB_SIZE == 0){
+               putchar('\t');
+               spaces = 0;
+           }
+        }else{
+            while (spaces > 0) {
+               putchar(' ');
+               --spaces;
+            }
+            putchar(c);
+        }
+    }
+}
+
+/*{
     int len = 0;
     int space = 0;
     int column = 0;
@@ -107,7 +146,7 @@ void entab(char s[], char c[]);
     }
     s[space] = '\0'
 }
-
+*/
 int main()
 {
     float celsius, fahr;
@@ -296,7 +335,7 @@ int main()
     }
 //Chapter 1.10
 //Programm 1.20,1.21
-
+/*
     printf("Enter a tab or spaces \n");
     printf("Enter String:\t1:\t2:\t3:\t4:\t5:\n");
     char p[350];
@@ -312,6 +351,9 @@ int main()
         printf("%s result programm 21 \n", p);
 
     }
+*/
+    detab();
+    entab();
 
     return 0;
 }
