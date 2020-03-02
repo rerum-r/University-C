@@ -48,7 +48,7 @@ void reverse (char s[])
 #define TAB_SIZE 8
 void detab()
 {
-    int len = 0;
+    int sdflen = 0;
     int space = 0;
     int column = 0;
     printf("Replace tabs with spaces in stream.\n");
@@ -113,6 +113,62 @@ void entab()
         }
     }
 }
+void folding_lines()
+{
+#define LENGTH_MAX 256
+
+    int long_line = 10;
+    char buf[256];
+    int length = 0;
+    int column = 0;
+    int word = 0;
+//    int c;
+    printf("Folding long lines into many lines, legth %d, empty string to exit.\n", long_line);
+    // abc   def
+    while ((length = get_line(buf,LENGTH_MAX)) != 0) {
+        column = 0;
+        word = 0;
+        for(int i = 0; i < length; ++i){
+            if(buf[i] != ' ' && buf[i] != '\t')
+                while(word <= i)
+                    putchar(buf[word++]);
+            if(buf[i] == '\t')
+                column += TAB_SIZE - (column % TAB_SIZE);
+            else
+                ++column;
+            if(column >= long_line){
+                putchar('*');
+                putchar('\n');
+                column = 0;
+                word = i+1;
+            }
+        }
+        putchar('\n');
+    }
+/*
+    while ((c = getchar()) != '\n'){
+        if (c == '\t',' ')
+            long_line
+            else
+                ++short_line;
+            if (c == ' '){
+                ++spaces;
+               if (short_line%TAB_SIZE == 0){
+                   putchar('\t');
+                   spaces = 0;
+               }
+            }else{
+                while (spaces > 0) {
+                   putchar(' ');
+                   --spaces;
+                }
+                putchar(c);
+
+            }
+        }
+*/
+
+}
 
 /*{
     int len = 0;
@@ -149,6 +205,7 @@ void entab()
 */
 int main()
 {
+    folding_lines();
     float celsius, fahr;
     int lower, upper, step;
 
@@ -354,6 +411,6 @@ int main()
 */
     detab();
     entab();
-
+    
     return 0;
 }
