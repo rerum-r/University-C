@@ -411,6 +411,12 @@ int main()
 */
     detab();
     entab();
+//Zlatopolskiy Chapter 1.
+//Programm 1
+    float pi = 3.14;
     
+    printf("Print Pi number on the screen = %1.2f \n", pi);
+    
+
     return 0;
 }
