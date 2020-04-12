@@ -368,9 +368,15 @@ void part_one(){
         printf("Exp = %3.2f \n", exp(param));
         
         float num;
+        int num_1 = 1;
+        int num_2 = 13;
+        int num_3 = 49;
         printf("You entered a number. \n");
         scanf("%f", &num);
-        printf("Number = %3.2f. \n", num);
+        printf("%3.2f - this is the number you entered. \n", num);
+        scanf("%d%d%d", &num_1, &num_2, &num_3);
+        printf("%d %d %d \n", num_1, num_2, num_3);
+
 
         double a = 3.14, b = 5.8, c = 3.5;
         printf("(a+b)/2 = (%3.2f+%3.2f)/2 = %3.2f .\n",a,b,(a+b)/2);
