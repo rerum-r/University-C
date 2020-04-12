@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int power(int base, int n)
 {
@@ -145,65 +146,9 @@ void folding_lines()
         }
         putchar('\n');
     }
-/*
-    while ((c = getchar()) != '\n'){
-        if (c == '\t',' ')
-            long_line
-            else
-                ++short_line;
-            if (c == ' '){
-                ++spaces;
-               if (short_line%TAB_SIZE == 0){
-                   putchar('\t');
-                   spaces = 0;
-               }
-            }else{
-                while (spaces > 0) {
-                   putchar(' ');
-                   --spaces;
-                }
-                putchar(c);
-
-            }
-        }
-*/
-
 }
 
-/*{
-    int len = 0;
-    int space = 0;
-    int column = 0;
-    int h = 0;
-    for (int = 0; s[length] != 0; ++length)
-    {
-        len = length;
-    }
-    for (int i = 0; i <= len; ++i){
-        if (c[i] = '\t')
-            column += (tabs - column%tabs);
-        else
-           ++column;
-        if (c[i] == ' '){
-            ++h;
-            if (!(column%tabs)){
-                space = 0;
-                s[++space] = '\t';
-            }
-            else {
-               for (int r = 0; r < space; ++r)
-                   s[++space] = ' ';
-               h = 0;
-               if (c[i] == '\n')
-                   column = 0;
-               s [++space] = c [i];
-            }
-        }
-    }
-    s[space] = '\0'
-}
-*/
-int main()
+void Chapter_1()
 {
     folding_lines();
     float celsius, fahr;
@@ -212,8 +157,8 @@ int main()
 #define LOWER 0
 #define UPPER 300
 #define STEP 20
-//Variables and arithmetic expressions
-//Programm 1.3,1.4,1.5
+    //Variables and arithmetic expressions
+    //Programm 1.3,1.4,1.5
     celsius = LOWER;
     printf("Temperature Table Celsius to Fahrenheit\n");
     while (celsius <= UPPER) {
@@ -227,9 +172,9 @@ int main()
     for (int fahr = UPPER; fahr >= LOWER; fahr = fahr - STEP)
         printf("%3d %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
 
-//Character I/O
-//Programm 1.6,1.7
-/*
+    //Character I/O
+    //Programm 1.6,1.7
+    /*
     int c;
     int counter = 0;
     printf("\nCounter Chars in string\n");
@@ -247,8 +192,8 @@ int main()
         ;
     printf("%.0f\n", nc);
 */
-//Counting lines, words.
-//Programm 1.8,1.9,1.10
+    //Counting lines, words.
+    //Programm 1.8,1.9,1.10
 #define IN 1
 #define OUT 0
 #define WMAX 10
@@ -285,7 +230,7 @@ int main()
             putchar('\\');
             putchar('\\');
             ++sleshes;
-        }        
+        }
         if ((c != ' ' || second_space != ' ') && c != '\t' && c != '\\'){
             putchar(c);
             ++symbols;
@@ -312,10 +257,10 @@ int main()
         lwords[len_word]++;
     else
         printf("Max lenght word incorrent%d\n", len_word);
-        printf("\nSpaces,Tab,lines %d %d %d\n",spaces,tab,lines);
-        printf("Symbols %d\n",symbols);
-        printf("Words in stream %d\n",words);
-        printf("Lenghts of words: ");
+    printf("\nSpaces,Tab,lines %d %d %d\n",spaces,tab,lines);
+    printf("Symbols %d\n",symbols);
+    printf("Words in stream %d\n",words);
+    printf("Lenghts of words: ");
     for(int i = 0; i < WMAX; ++i)
         printf("%d ", lwords[i]);
     printf("\nHistogram of words\n");
@@ -338,8 +283,8 @@ int main()
                 printf(" ");
         printf("\n");
     }
-//Arrays 1.6
-//Programm 1.13, 1.14
+    //Arrays 1.6
+    //Programm 1.13, 1.14
     printf("0123456789\n");
     printf("\nFrequencys of chars\n");
     char f_chars[MAX_CHARS];
@@ -354,13 +299,13 @@ int main()
             printf("%c[%d] ",i, f_chars[i]);
     printf("\n");
 
-//Function 1.7
+    //Function 1.7
 
     printf("Powers of two from zero to eight.\n");
     for (int i = 0; i <= 8; ++i)
         printf("%d \t %d\n", i, power(2,i));
 
-//Programm 1.15
+    //Programm 1.15
     celsius = LOWER;
     printf("\nTemperature Table Celsius to Fahrenheit\n");
     while (celsius <= UPPER) {
@@ -368,8 +313,8 @@ int main()
         celsius = celsius + STEP;
     }
 
-//Character arrays 1.9
-//Programm 1.16,1.17,1.18,1.19
+    //Character arrays 1.9
+    //Programm 1.16,1.17,1.18,1.19
 
 #define MAX_LINE 10
 #define LONG_LINE 5
@@ -390,9 +335,9 @@ int main()
         else
             printf("Is shorter or equal than %d\n", LONG_LINE);
     }
-//Chapter 1.10
-//Programm 1.20,1.21
-/*
+    //Chapter 1.10
+    //Programm 1.20,1.21
+    /*
     printf("Enter a tab or spaces \n");
     printf("Enter String:\t1:\t2:\t3:\t4:\t5:\n");
     char p[350];
@@ -409,14 +354,95 @@ int main()
 
     }
 */
-    detab();
-    entab();
-//Zlatopolskiy Chapter 1.
-//Programm 1
-    float pi = 3.14;
-    
-    printf("Print Pi number on the screen = %1.2f \n", pi);
-    
+}
+
+void part_one(){
+    printf("Chapter one from Zlatopolskiy \n");
+
+    //Zlatopolskiy Chapter 1.
+    //Programm 1
+        float pi = 3.14;
+        printf("Print Pi number on the screen = %1.2f \n", pi);
+
+        double param = 2.0;
+        printf("Exp = %3.2f \n", exp(param));
+        
+        float num;
+        printf("You entered a number. \n");
+        scanf("%f", &num);
+        printf("Number = %3.2f. \n", num);
+
+        double a = 3.14, b = 5.8, c = 3.5;
+        printf("(a+b)/2 = (%3.2f+%3.2f)/2 = %3.2f .\n",a,b,(a+b)/2);
+        printf("(-b+(1/a))/(2/c) = (-%3.2f+(1/%3.2f))/(2/%3.2f) = %3.2f . \n",b,a,c,(-b+(1/a))/(2/c));
+        printf("5.45*(a+(b*2))/(2-a) = 5.45*(%3.2f+(%3.2f*2))/(2-%3.2f) = %3.2f . \n",a,b,a,5.45*(a+(b*2))/(2-a));
+
+}
+
+/*
+    while ((c = getchar()) != '\n'){
+        if (c == '\t',' ')
+            long_line
+            else
+                ++short_line;
+            if (c == ' '){
+                ++spaces;
+               if (short_line%TAB_SIZE == 0){
+                   putchar('\t');
+                   spaces = 0;
+               }
+            }else{
+                while (spaces > 0) {
+                   putchar(' ');
+                   --spaces;
+                }
+                putchar(c);
+
+            }
+        }
+*/
+
+
+
+/*{
+    int len = 0;
+    int space = 0;
+    int column = 0;
+    int h = 0;
+    for (int = 0; s[length] != 0; ++length)
+    {
+        len = length;
+    }
+    for (int i = 0; i <= len; ++i){
+        if (c[i] = '\t')
+            column += (tabs - column%tabs);
+        else
+           ++column;
+        if (c[i] == ' '){
+            ++h;
+            if (!(column%tabs)){
+                space = 0;
+                s[++space] = '\t';
+            }
+            else {
+               for (int r = 0; r < space; ++r)
+                   s[++space] = ' ';
+               h = 0;
+               if (c[i] == '\n')
+                   column = 0;
+               s [++space] = c [i];
+            }
+        }
+    }
+    s[space] = '\0'
+}
+*/
+
+
+int main()
+{
+
+    part_one();
 
     return 0;
 }
