@@ -367,21 +367,46 @@ void part_one(){
         double param = 2.0;
         printf("Exp = %3.2f \n", exp(param));
         
-        float num;
+        double num;
         int num_1 = 1;
         int num_2 = 13;
-        int num_3 = 49;
+        int num_3 = -49;
         printf("You entered a number. \n");
-        scanf("%f", &num);
+        scanf("%lf", &num);
         printf("%3.2f - this is the number you entered. \n", num);
-        scanf("%d%d%d", &num_1, &num_2, &num_3);
-        printf("%d %d %d \n", num_1, num_2, num_3);
-
-
+        printf("%d%d,  %d \n", num_1, num_2, num_3);
+        printf("%d \n%d \n%d \n%d \n", num_1, num_2, num_3, num_1);
+        printf("Tasks 1.14 \n");
+        printf("2*x = 2*%d = %d\n", num_2, 2*num_2);
+        printf("mod(%d)= ", num_3);
+        if(num_3 < 0){
+            printf("%d \n", -1*num_3);
+        }else{
+            printf("%d \n", num_3);
+        }
+        printf("1.14: -7.5*power(%d,2)= %f\n", num_2, -7.5*power(num_2,2));
+        printf("Tasks 1.15 \n");
         double a = 3.14, b = 5.8, c = 3.5;
         printf("(a+b)/2 = (%3.2f+%3.2f)/2 = %3.2f .\n",a,b,(a+b)/2);
         printf("(-b+(1/a))/(2/c) = (-%3.2f+(1/%3.2f))/(2/%3.2f) = %3.2f . \n",b,a,c,(-b+(1/a))/(2/c));
         printf("5.45*(a+(b*2))/(2-a) = 5.45*(%3.2f+(%3.2f*2))/(2-%3.2f) = %3.2f . \n",a,b,a,5.45*(a+(b*2))/(2-a));
+        printf("1/(1+(a+b)/2) = 1/(1+(%3.2f+%3.2f)/2) = %3.2f . \n",a,b,1/(1+(a+b)/2));
+        int m = 2, n = 3;
+        int k = power(m,n);
+        int l = power(2,k);
+        printf("power(2,power(%d,%d)) = power(2,%d) = %d\n", m, n, k, l);
+        printf("Tasks 1.18 \n");
+        double s = 6;
+        s = -5.2*s;
+        s = 0;
+        printf("s = %3.2lf \n", s);
+        printf("Tasks 1.22 \n");
+        printf("7*power(x,2)-3*x+6, [0,5):\n");
+        for(int i = 0; i < 5; ++i)
+            printf("\t7*power(%d,2)-3*%d+6 = %d\n",i , i, 7*power(i,2)-3*i+6);
+        printf("12*power(a,2)+7*a-16, [0,7):\n");
+        for(int i = 0; i < 7; ++i)
+            printf("\t12*power(%d,2)+7*%d-16 = %d\n",i , i, 12*power(i,2)+7*i-16);
 
 }
 
@@ -452,3 +477,4 @@ int main()
 
     return 0;
 }
+
