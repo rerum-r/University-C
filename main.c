@@ -361,12 +361,10 @@ void part_one(){
 
     //Zlatopolskiy Chapter 1.
     //Programm 1
-        float pi = 3.14;
+        double pi = 3.14;
         printf("Print Pi number on the screen = %1.2f \n", pi);
-
         double param = 2.0;
         printf("Exp = %3.2f \n", exp(param));
-        
         double num;
         int num_1 = 1;
         int num_2 = 13;
@@ -407,6 +405,45 @@ void part_one(){
         printf("12*power(a,2)+7*a-16, [0,7):\n");
         for(int i = 0; i < 7; ++i)
             printf("\t12*power(%d,2)+7*%d-16 = %d\n",i , i, 12*power(i,2)+7*i-16);
+        printf("Tasks 1.23\n");
+        printf("Enter a number\n");
+        scanf("%lf", &num);
+        printf("power(%f,2)+10/sqrt(power(%f,2)+1) = %f\n", num, num, power(a,2)+10/sqrt(power(a,2)+1));
+        printf("Tasks 1.25\n");
+        double p, key;
+        printf("Enter the number of the side of the square\n");
+        scanf("%lf", &key);
+        p = 4 * key;
+        printf("Perimeter of the square = %f.\n", p);
+        printf("Tasks 1.26\n");
+        double r, d;
+        printf("Enter the radius value\n");
+        scanf("%lf", &r);
+        d = r * 2;
+        printf("The diameter of the circle = %f.\n", d);
+        printf("Tasks 1.27 - In the process of decision\n\n");
+        printf("Tasks 1.28\n");
+        double le, v, se;
+        printf("Enter the length of the cube edge\n");
+        scanf("%lf", &le);
+        v = power(le,3.0);
+        se = power(6,le);
+        printf("V cube = %lf.\n", v);
+        printf("S surface area = %f.\n", se);
+        printf("Tasks 1.29\n");
+        double ci;
+        printf("Enter the radius of the circle\n");
+        scanf("%lf", &r);
+        ci = pi * 2 * r;
+        se = 2 * pi * power(r,2);
+        printf("The circumference is equal  = %f\n", ci);
+        printf("The area of the circle is equal = %f\n", se);
+
+
+
+
+
+
 
 }
 
