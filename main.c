@@ -464,9 +464,9 @@ void part_one(){
         for(int i = 0; i < 7; ++i)
             printf("\t12*power(%d,2)+7*%d-16 = %d\n",i , i, 12*power(i,2)+7*i-16);
         printf("Tasks 1.23\n");
-        printf("Enter a number\n");
+        printf("Enter parameter a:\n");
         scanf("%lf", &num);
-        printf("power(%f,2)+10/sqrt(power(%f,2)+1) = %f\n", num, num, power(a,2)+10/sqrt(power(a,2)+1));
+        printf("(pow(%f,2)+10)/sqrt(pow(%f,2)+1) = %f\n", num, num, (pow(num,2)+10)/sqrt(pow(num,2)+1));
         printf("Tasks 1.25\n");
         double p, key;
         printf("Enter the number of the side of the square\n");
@@ -479,15 +479,16 @@ void part_one(){
         scanf("%lf", &r);
         d = r * 2;
         printf("The diameter of the circle = %f.\n", d);
-//        printf("Tasks 1.27\n");       Not work
-//        double R = 6350, ht, lo;
-
+        printf("Tasks 1.27\n");
+        double R = 6350, ht = 1;
+        double lo = sqrt(pow(R+ht,2)-pow(R,2));
+        printf("d = sqrt(pow(R+ht,2)-pow(R,2)) = sqrt(pow(%f+%f,2)-pow(%f,2)) = %f\n", R, ht, R, lo);
         printf("Tasks 1.28\n");
         double le, v, se;
         printf("Enter the length of the cube edge\n");
         scanf("%lf", &le);
-        v = power(le,3.0);
-        se = power(6,le);
+        v = pow(le,3.0);
+        se = pow(le,2)*6;
         printf("V cube = %lf.\n", v);
         printf("S surface area = %f.\n", se);
         printf("Tasks 1.29\n");
@@ -495,27 +496,23 @@ void part_one(){
         printf("Enter the radius of the circle\n");
         scanf("%lf", &r);
         ci = pi * 2 * r;
-        se = 2 * pi * power(r,2);
+        se = 2 * pi * pow(r,2);
         printf("The circumference is equal  = %f\n", ci);
         printf("The area of the circle is equal = %f\n", se);
         printf("Tasks 1.30\n");
-        double x, y, a1, b1;
-        printf("power(x,3)-2,5*x*y+1,78*power(x,2)-2,5*y+1, [0,7) :\n");
-        for(int i = 0; i < 7; ++i);
+        printf("power(x,3)-2*x*y+4*power(x,2)-3*y+1, [0,3) :\n");
+        for(int x = 0; x < 3; ++x)
+            for(int y = 0; y < 3; ++y){
+                int r = power(x,3)-2*x*y+4*power(x,2)-3*y+1;
+                printf("\tpower(%d,3)-2*%d*%d+4*power(%d,2)-3*%d+1 = %d\n", x, x, y, x, y, r);
+            }
         printf("Tasks 1.31\n");
-        double num1, num2;
-        printf("Enter number one:\n");
-        scanf("%lf", num1);
-        printf("Enter number two:\n");
-        scanf("%lf", num2);
+        double num1 = 2, num2 = 4;
         printf("The arithmetic average of the:(%f+%f)/2 = %f.\n", num1, num2, (num1+num2)/2);
         printf("Geometric mean value: sqrt(%f * %f) = %f.\n", num1, num2, sqrt(num1*num2));
         printf("Tasks 1.35\n");
-        double lk_1, lk_2, hte;
-        printf("Enter the legs of a right triangle\n");
-        scanf("%lf", lk_1);
-        scanf("%lf", lk_2);
-        hte = sqrt(power(lk_1,2)+power(lk_2,2));
+        double lk_1 = 3, lk_2 = 5, hte;
+        hte = sqrt(pow(lk_1,2)+pow(lk_2,2));
         printf("The hypotenuse of the triangle = %f.\n", hte);
         printf("Tasks 1.39\n");
 
