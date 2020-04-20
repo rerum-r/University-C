@@ -354,6 +354,64 @@ void Chapter_1()
 
     }
 */
+    /*
+        while ((c = getchar()) != '\n'){
+            if (c == '\t',' ')
+                long_line
+                else
+                    ++short_line;
+                if (c == ' '){
+                    ++spaces;
+                   if (short_line%TAB_SIZE == 0){
+                       putchar('\t');
+                       spaces = 0;
+                   }
+                }else{
+                    while (spaces > 0) {
+                       putchar(' ');
+                       --spaces;
+                    }
+                    putchar(c);
+
+                }
+            }
+    */
+
+
+
+/*{
+        int len = 0;
+        int space = 0;
+        int column = 0;
+        int h = 0;
+        for (int = 0; s[length] != 0; ++length)
+        {
+            len = length;
+        }
+        for (int i = 0; i <= len; ++i){
+            if (c[i] = '\t')
+                column += (tabs - column%tabs);
+            else
+               ++column;
+            if (c[i] == ' '){
+                ++h;
+                if (!(column%tabs)){
+                    space = 0;
+                    s[++space] = '\t';
+                }
+                else {
+                   for (int r = 0; r < space; ++r)
+                       s[++space] = ' ';
+                   h = 0;
+                   if (c[i] == '\n')
+                       column = 0;
+                   s [++space] = c [i];
+                }
+            }
+        }
+        s[space] = '\0'
+    }
+*/
 }
 
 void part_one(){
@@ -421,7 +479,9 @@ void part_one(){
         scanf("%lf", &r);
         d = r * 2;
         printf("The diameter of the circle = %f.\n", d);
-        printf("Tasks 1.27 - In the process of decision\n\n");
+//        printf("Tasks 1.27\n");       Not work
+//        double R = 6350, ht, lo;
+
         printf("Tasks 1.28\n");
         double le, v, se;
         printf("Enter the length of the cube edge\n");
@@ -438,74 +498,25 @@ void part_one(){
         se = 2 * pi * power(r,2);
         printf("The circumference is equal  = %f\n", ci);
         printf("The area of the circle is equal = %f\n", se);
-
-
-
-
-
-
+        printf("Tasks 1.30\n");
+        double x, y, a1, b1;
+        printf("power(x,3)-2,5*x*y+1,78*power(x,2)-2,5*y+1, [0,7) :\n");
+        for(int i = 0; i < 7; ++i);
+        printf("Tasks 1.31\n");
+        double num1, num2;
+        printf("Enter two numbers:\n");
+        scanf("%lf%lf", num1, num2);
+        printf("The arithmetic average of the:(%f+%f)/2 = %f.\n", num1, num2, (num1+num2)/2);
+        printf("Geometric mean value: sqrt(%f * %f) = %f.\n", num1, num2, sqrt(num1*num2));
+        printf("Tasks 1.35\n");
+        double lk_1, lk_2, hte;
+        printf("Enter the legs of a right triangle\n");
+        scanf("%lf%lf", lk_1, lk_2);
+        hte = sqrt(power(lk_1,2)+power(lk_2,2));
+        printf("The hypotenuse of the triangle = %f.\n", hte);
+        printf("Tasks 1.39\n");
 
 }
-
-/*
-    while ((c = getchar()) != '\n'){
-        if (c == '\t',' ')
-            long_line
-            else
-                ++short_line;
-            if (c == ' '){
-                ++spaces;
-               if (short_line%TAB_SIZE == 0){
-                   putchar('\t');
-                   spaces = 0;
-               }
-            }else{
-                while (spaces > 0) {
-                   putchar(' ');
-                   --spaces;
-                }
-                putchar(c);
-
-            }
-        }
-*/
-
-
-
-/*{
-    int len = 0;
-    int space = 0;
-    int column = 0;
-    int h = 0;
-    for (int = 0; s[length] != 0; ++length)
-    {
-        len = length;
-    }
-    for (int i = 0; i <= len; ++i){
-        if (c[i] = '\t')
-            column += (tabs - column%tabs);
-        else
-           ++column;
-        if (c[i] == ' '){
-            ++h;
-            if (!(column%tabs)){
-                space = 0;
-                s[++space] = '\t';
-            }
-            else {
-               for (int r = 0; r < space; ++r)
-                   s[++space] = ' ';
-               h = 0;
-               if (c[i] == '\n')
-                   column = 0;
-               s [++space] = c [i];
-            }
-        }
-    }
-    s[space] = '\0'
-}
-*/
-
 
 int main()
 {
