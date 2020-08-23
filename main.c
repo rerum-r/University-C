@@ -11,8 +11,8 @@ int power(int a, int n)
 }
 
 void part_one(){
-    printf("Chapter one from Zlatopolskiy \n");
-
+    printf("Chapter one from Zlatopolskiy.\n\n");
+/*
     //Zlatopolskiy Chapter 1.
     //Programm 1
         double pi = 3.14;
@@ -110,45 +110,103 @@ void part_one(){
         double lk_1 = 3, lk_2 = 5, hte;
         hte = sqrt(pow(lk_1,2)+pow(lk_2,2));
         printf("The hypotenuse of the triangle = %f.\n", hte);
-        printf("Tasks 1.39\n");
+        printf("Tasks 1.39\n\n");
         printf("z = x+((2+y)/power(x,2))/y+((1)/sqrt(power(x,2)+10)), [0,5) :\n");
         for(int x = 0; x < 5; ++x)
             for(int y = 0; y < 5; ++y){
                 int z = x+((2+y)/power(x,2))/y+((1)/sqrt(power(x,2)+10));
                 printf("\t%d+((2+%d)/power(%d,2))/%d+((1)/sqrt(power(%d,2)+10)) = %d\n", x, y, x, y, x, z);
             }
+*/
         printf("Tasks 1.44\n");
-        double vd_a, vd_b, P, diag_c;
+        double vd_a, vd_b, per, diag_c;
         scanf("%lf""%lf", &vd_a, &vd_b);
-        P = (vd_a+vd_b)*2;
-        printf("The perimeter of the rectangle = %f.\n", P);
+        per = (vd_a+vd_b)*2;
+        printf("The perimeter of the rectangle = %f.\n", per);
         diag_c = sqrt(pow(vd_a,2)+pow(vd_b,2));
         printf("The length of the diagonal = %f.\n", diag_c);
-        printf("Tasks 1.57 and 1.58\n");
+        printf("Tasks 1.46\n");
+        int x1 = 4, x2 = 5, x3 = 7;
+        printf("Square of parallelepiped, sizes %d,%d,%d: %d.\n", x1, x2, x3, x1*x3);
+        printf("Volume of parallelepiped, sizes %d,%d,%d: %d.\n", x1, x2, x3, x1*x2*x3);
+        printf("\nTasks 1.48\n");
+        double g = 0.0, g1 = 3.0, g2 = 5.0, g3 = 4.0;
+        g = sqrt(pow((g2 - g1) / 2.0, 2.0) + pow(g3, 2.0));
+        per = g1 + g2 + g * 2;
+        printf("Trapezoid with bases: %2.2f %2.2f, height = %2.2f, ",g1, g2, g3);
+        printf("sides =  %2.2f, P = %2.2f.\n", g, per);
+        printf("\nTasks 1.50\n");
+        g1 = 1.0; g2 = 1.2; g3 = 3.7;
+        double g4 = 3.2, g5 = 2.4, g6 = 2.6;
+        printf("Triangle with points: (%2.1f,%2.1f), (%2.1f,%2.1f), (%2.1f,%2.1f).\n", g1, g2, g3, g4, g5, g6);
+        double s1 = sqrt(pow((g3 - g1),2.0) + pow((g4 - g2),2.0));
+        double s2 = sqrt(pow((g5 - g3),2.0) + pow((g6 - g4),2.0));
+        double s3 = sqrt(pow((g5 - g1),2.0) + pow((g6 - g2),2.0));
+        per = s1 + s2 + s3;
+        printf("Sides of triangle: %2.3f,%2.3f,%2.3f, P = %2.3f\n", s1, s2, s3, per);
+        per /= 2.0;
+        double s = sqrt(per * (per - s1) * (per - s2) * (per - s3));
+        printf("Square = %2.3f.\n", s);
+        printf("\n1.54\n");
+        x1 = 18; x2 = 23;
+        x3 = (x1 + x2)/2;
+        printf("Age Tanya = %d, Age Mitya  = %d, avg = %d, Tdelta = %d, Mdelta = %d.\n", x1, x2, x3, abs(x1-x3), abs(x2-x3));
+        printf("\nTasks 1.57 and 1.58\n");
 
 #define LOWER 0
-#define UPPER 480
+#define UPPER 200
 #define STEP 20
-#define KELV_LOWER 274.15
+#define KELV_LOWER 273.15
 
-        float celsius, fahr;
+        float celsius, fahr, kelvin;
         //Variables and arithmetic expressions
         celsius = LOWER;
-        printf("Temperature Table Celsius to Fahrenheit\n");
+        printf("Temperature Table Celsius to Fahrenheit and Kelvin.\n");
+        printf("Celsius:\tFahrenheit:\tKelvin:\n");
         while (celsius <= UPPER) {
             fahr = 9.0/5.0 * celsius+32.0;
-            printf ("%6.1f %5.4f\n", celsius, fahr);
+            kelvin = celsius + KELV_LOWER;
+            printf ("%3.1f\t\t%5.1f\t\t%4.2f \n", celsius, fahr, kelvin);
             celsius = celsius + STEP;
         }
-/*
-        printf("\nTemperature Table Celsius to Kelvin.\n\n");
-        for() //Confused about converting Celsius to Kelvin
-            printf();
-*/
+        fahr = 451.0;
+        celsius = (fahr-32.0) * 5.0/9.0;
+        printf("Fahrenheit %3.3f is %3.3f. \n", fahr, celsius);
+        printf("\nTasks 1.59 - 1.60.\n");
+        int a1 = 2, b2 = 4, c3 = 3, x;
+        a1 = a1 ^ b2;
+        b2 = a1 ^ b2;
+        a1 = a1 ^ b2;
+        printf("Assigning values to 2 variables a = %d, b = %d.\n", a1, b2);
+        printf("Assigning values to 3 variables a = %d, b = %d, c = %d.\n", a1, b2, c3);
+        x = a1;
+        a1 = b2;
+        b2 = c3;
+        c3 = x;
+        printf("Assigning values to 3 variables a = %d, b = %d, c = %d.\n", a1, b2, c3);
+        printf("\nTasks 1.61-1.62.\n");
+        int a_ve = 3, b_ve, c_ve, d_ve, e_ve, f_ve;
+        b_ve = a_ve * a_ve; //2
+        c_ve = b_ve * b_ve; //4
+        d_ve = c_ve * c_ve; //8
+        printf("Real number 3 to the 8th power equals = %d.\n", d_ve);
+        f_ve = d_ve * c_ve; //12
+        e_ve = d_ve * d_ve; //16
+        b_ve = e_ve * d_ve; //24
+        printf("Real number 3 to the 24th power equals = %d.\n", b_ve);
+        a_ve = b_ve * c_ve; //28
+        printf("Real number 3 to the 28th power equals = %d.\n", a_ve);
+        printf("Real number 3 to the 4th = %d, 12th = %d and 28th = %d power equals.\n", c_ve, f_ve, a_ve);
+}
+void part_two(){
+        printf("Chapter two from Zlatopolskiy.\n\n");
+        //Zlatopolskiy Chapter 2.
+
 }
 int main()
 {
     part_one();
+    part_two();
 
     return 0;
 }
