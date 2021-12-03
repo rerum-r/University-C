@@ -2,6 +2,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
 
 int power(int a, int n)
 {
@@ -11,6 +12,63 @@ int power(int a, int n)
     return result;
 }
 
+/*
+    Practice from the 7th chapter from the book by Stephen Prath.
+    int a = 7;
+    if (0)
+        printf("%d \n", a);
+    else
+        printf("Enter number: \n");
+    if (a > 10 && a < 15)
+        printf("a > 10 - 15\n");
+    else if (a < 10 && a >= 5) {
+        if (a == 5)
+            printf("a = 5\n");
+        else if (a == 7)
+            printf("You are lucky a = 7\n");
+        printf("a was < 10\n");
+    } else
+        printf("a = %d(integer)\n", a);
+
+
+    a = 1;
+    int b = 1, c = 1;
+    if ((a || b) && c)
+        printf("(Not %d or %d) and %d = true\n", a, b, c);
+
+    a = (b >= c) ? 5 : 7;
+    printf("a = %d\n", a);
+
+    for (int i = 0; i < a; ++i){
+        if (i == 2)
+            break;
+        for (int j = 0; j < a; ++j){
+            printf("i = %d, j = %d\n", i, j);
+            //            if (j == 1)
+            //                break;
+        }
+        //        if (i == 3)
+        //            break;
+        printf("next i\n");
+    }
+    a = 3;
+    switch (a) {
+    case 3:
+        printf("a = 3\n");
+        break;
+    case 5:
+        printf("a = 5\n");
+        break;
+    default:
+        printf("Not 3, not 5\n");
+    }
+    printf("\nUse labels\n");
+label_retro1:
+    printf("a = %d\n", a);
+    ++a;
+    if (a < 5)
+        goto label_retro1;
+*/
 void part_one(){
     printf("Chapter one from Zlatopolskiy.\n\n");
     double pi = 3.14;
@@ -1378,35 +1436,27 @@ void part_five (void)
         summ2 += a2;
         printf("1: %d(%d), 2: %d(%d) ", a1, summ1, a2, summ2);
     }
-    //    printf("\n\nTask 5.60. :");
-    //    int
-    printf("\n\nRecurrence relations. Task 5.66. Sequence of numbers \n");
+    printf("\nTask 5.63 There are 10 districts in the region. Areas sown with wheat (in hectares):\n");
+    srand(time(NULL));
+    summ = 0; a1 = 0;
+    for (int i = 1; i <= 10; ++i) {
+        a1 = 1 + rand() % 8;
+        a2 = 1 + rand() % 7;
+        printf("%d - %d; ", a1, a2);
+        summ += a1 * a2;
+    }
+    printf("Summ of harvest = %d\n", summ);
+    printf("Avarage yield  = %.2f\n\n",(double)summ / 10.0);
+    printf("\n\nRecurrence relations. Task 5.66. Sequence of numbers: \n");
     a1 = 1;
     for (int i = 1; i < 7; ++i){
         a2 = i * a1 + 1 / i;
         printf("%d ", a2);
         a1 = a2;
     }
-/*    printf("5.63\n");
-    srand(time(NULL));
-    summ = 0;
-    for (i = 1; i <= 10; ++i) {
-        a = 1 + rand() % 7;
-        b = 1 + rand() % 5;
-        printf("%d - %d; ", a, b);
-        summ += a * b;
-    }
-    printf("SUMM.UROZHAY = %d\n",summ);
-    printf("SRED.UROZHAYNOST = %.2f\n\n",(double)summ / 10.0); // ДОДЕЛАТЬ!!!!!!
-*/
+
+
     double dv1 = 0.0, dv2 = 0.0, dv3 = 1.0;
-    printf("\nTask.5.66.sequence of numbers: a0 = %.2f, a = ka + 1 / k", dv3);
-    n = 5;
-    for (int dv3 = 1; dv3 <= n; ++ dv3) {
-        dv2 = dv3 * (dv1) + 1 / dv3;
-        printf("a%d = %.2f; ",dv3, dv2);
-        dv1 = dv2;
-    }
     printf("\n\nTask5.67  Fibonachi n = 1..10\n");
     a1 = 1; a2 = 1; summ = 2;
     for (int i = 3; i <= 10; ++i){
@@ -1580,7 +1630,157 @@ void part_six (void)
     for (a = 1; a * a < n; ++a)
         printf("%d (%d) ", a, a * a);
     a = a + 1;
-    printf("\nTask 6.10 b) First number in power 2, more than %d is %d (%d).\n", n, a, a * a);
+    printf("\nTask 6.10 b) First number in power 2, more than %d is %d (%d) ", n, a, a * a);
+    n = 10;
+    printf("\nTask. 6.13 Sequence of numbers 1 + 1/2, 1 + 1/3 ... 1 + 1/n Print all numbers n sequences will be at least a\n");
+    for (int i = 2; i < n; ++i) {
+        d1 = 1.0 + (1.0 / (double)i);
+        printf("%.2f ", d1);
+    }
+    d1 = 2.5; d2 = 0.0;
+    printf("\nTask 6.16 Sequence of numbers 1 / 1 + 1 / 2 + 1 / 3 + ... , more than %.2f: ", d1);
+    for (int i = 1; d2 < d1; ++i) {
+        d2 += 1.0 / (double)i;
+        printf("%d:(%.2f) ", i, d2);
+    }
+    d1 = 0.01; d2 = 1.0;
+    double d3 = 2.0;
+    printf("\nTask 6.19 Sequence of numbers 1 / 1, 2 / 1, 3 / 2 ..., diff less than %.2f: ", d1);
+    for (int i = 3, j = 2; fabs(d3 - d2) > d1; ++i, ++j) {
+        d2 = d3;
+        d3 = (double)i / (double)j;
+        printf("%d/%d: %.3f (%.3f) ", i, j, d3, fabs(d3 - d2));
+    }
+    n = 785343;
+    int counter_3 = 0;
+    int lst_dgt = n % 10;
+    int counter_lst_dgt = 0;
+    int even_dgt = 0;
+    int summ_dgt = 0;
+    int mult_dgt = 1;
+    int div_5 = 0;
+    printf("\n\nTask.6.22 Digits in natural numbers %d\n", n);
+    while (n > 0) {
+        int dgt = n % 10;
+        if (dgt == 3)
+            counter_3++;
+        if (lst_dgt == dgt)
+            counter_lst_dgt++;
+        if (dgt % 2 == 0)
+            even_dgt++;
+        if (dgt > 5)
+            summ_dgt += dgt;
+        if (dgt > 7)
+            mult_dgt *= dgt;
+        if (dgt % 5 == 0)
+            div_5++;
+        n /= 10;
+    }
+    printf("1.a) Counter of digit 3 = %d\n", counter_3);
+    printf("1.b) Counter of last digit %d = %d\n", lst_dgt, counter_lst_dgt);
+    printf("1.v) Counter of even digit = %d\n", even_dgt);
+    printf("1.g) Summ of digits more than 5 = %d\n", summ_dgt);
+    printf("1.d) Product of digit more than 7 = %d\n", mult_dgt);
+    printf("1.e) Counter of digit 5 = %d\n", div_5);
+    n = 720895;
+    printf("\n\nTask.6.26 Maxim and minim digit in number %d\n", n);
+    int min = 10, max = -1;
+    if (n < 1)
+        printf("\nNumber must be natural 1...n \n");
+    while (n > 0) {
+        int dgt = n % 10;
+        if (dgt < min)
+            min = dgt;
+        if (dgt > max)
+            max = dgt;
+        n /= 10;
+    }
+    printf("Maximum = %d, minimum = %d\n", max, min);
+    int pos = 0;
+    a = 1582858, counter = 0;
+    printf("\nTask 6.30 Natural number = %d, Determine the number of the digit 8 in it, counting from the end of the number.\n", a);
+    while (a != 0) {
+        ++counter;
+        if(a % 10 == 8)
+            pos = counter;
+        a /= 10;
+    }
+    if (pos != 0)
+        printf("Counter %d, 8 postion is %d.\n", counter, pos);
+    else
+        printf("Digit 8 not found.\n");
+    printf("\nTask 6.34 Find the first 15 natural numbers divisible entirely by 19\n");
+    a = 0; b = 100;
+    while (a < 15) {
+        if (b % 19 == 0){
+            printf("%d(%d) \n", b, b / 19);
+            ++a;
+        }
+        ++b;
+    }
+    n = 4782415;
+    printf("\nTask 6.38. Given a natural number = %d. Determine how many times the first one occurs in it figure.\n", n);
+    a = n; counter = 0;
+    while (a >= 10) {
+        a /= 10;
+        //printf("Number = %d.\n", a);
+    }
+    while (n != 0) {
+        //printf("n = %d, last digit = %d \n", n, n % 10);
+        if (n % 10 == a)
+            counter++;
+        n /= 10;
+    }
+    printf("First digit %d, counter %d.\n", a, counter);
+    n = 981875812; counter = 0;
+    max = -1; min = 10;
+    int max_pos_1 = -1, max_pos_2= -1;
+    int min_pos_1 = -1, min_pos_2= -1;
+    printf("\nTask 6.42. Natural number in which all the digits are different\n");
+    while (n != 0){
+        int digit = n % 10;
+        if (digit == max) {
+            max_pos_2 = max_pos_1;
+            max_pos_1 = counter;
+        }
+        if (digit == min) {
+            min_pos_2 = min_pos_1;
+            min_pos_1 = counter;
+        }
+        if (digit > max) {
+            max_pos_1 = counter;
+            max_pos_2 = -1;
+            max = digit;
+        }
+        if (digit < min) {
+            min_pos_1 = counter;
+            min_pos_2 = -1;
+            min = digit;
+        }
+        printf("n = %d,\t digit = %d, counter = %d, max = %d(%d,%d), min = %d(%d,%d)\n",
+               n, digit, counter, max, max_pos_1, max_pos_2, min, min_pos_1, min_pos_2);
+        n /= 10;
+        ++counter;
+    }
+    printf("\nTask 6.43 - 6.44 Sequnces of nubmers: \n");
+    a = 0; b = 15; counter = 0;
+    printf("Ascending: ");
+    while (a <= b) {
+        int c = a + rand() % 3;
+        if (a == c)
+            ++counter;
+        a = c;
+        printf("%d(%d) ", a, counter);
+    }
+    printf("\nDescending: ");
+    counter = 0;
+    while (a > 0) {
+        int c = a - rand() % 3;
+        if (a == c)
+            ++counter;
+        a = c;
+        printf("%d(%d) ", a, counter);
+    }
 
     /*
 
@@ -1600,7 +1800,6 @@ void part_six (void)
         dl++;
     }
     printf("\nSum of all consecutive odd numbers %.2f", sumd);
-    printf("\nTask 6.6  Given a sequence a\n", dl);
 
 */
 
@@ -1636,6 +1835,12 @@ int main()
     //    part_four();
     //    part_five();
     part_six();
+
+
+
+
+
+
 
     return 0;
 }
